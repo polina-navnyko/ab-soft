@@ -1,0 +1,21 @@
+<div class="right_col text ">
+  <article class="tab">
+    <h3 class="tag">Last News</h3>
+        {% if latest_news %}
+            {% regroup latest_news by created|date:"F, Y" as news_regrouped %}
+            {% for news in news_regrouped %}
+                <p class="news_blue">{{ news.grouper }}</p>
+                {% for post in news.list %}
+                    {{ post.text }}<br>
+                {% endfor %}
+            {% endfor %}
+        {% else %}
+            No news yet=(
+        {% endif %}
+  </article>
+  <div class="button5" >
+      <a href="{% url "page_news" %}">
+          Read more
+      </a>
+  </div>
+</div>

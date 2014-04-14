@@ -1,0 +1,62 @@
+[
+  {
+    "pk": 2,
+    "model": "ab_products.softwareproduct",
+    "fields": {
+      "name": "test product",
+      "license": [
+        1,
+        2,
+        3
+      ],
+      "slug": "test-product",
+      "full_description": "<p>full description</p>",
+      "short_description": "short description",
+      "logo": 2,
+      "thumbnail": 1
+    }
+  },
+  {
+    "pk": 1,
+    "model": "ab_products.license",
+    "fields": {
+      "price": 123,
+      "code": "as_sa",
+      "verbose_name": "asdsad"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "ab_products.license",
+    "fields": {
+      "price": 200,
+      "code": "test_lic",
+      "verbose_name": "test license"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "ab_products.license",
+    "fields": {
+      "price": 375,
+      "code": "test_lic_2",
+      "verbose_name": "test license 2"
+    }
+  },
+  {
+    "pk": 1,
+    "model": "ab_site.image",
+    "fields": {
+      "image": "images/bg1_5.jpg",
+      "verbose_name": "test product thumbnail"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "ab_site.image",
+    "fields": {
+      "image": "images/bg1_6.jpg",
+      "verbose_name": "test product logo"
+    }
+  }
+  ]

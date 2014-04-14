@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title_head %}Contacts{% endblock %}
+
+{% block content %}
+    <div class="right_col services">
+        <article class="text_pr">
+            <h3 class="tag_pr">Contacts</h3>
+            {{ contact_info.body|safe }}
+        </article>
+    </div>
+{% endblock %}

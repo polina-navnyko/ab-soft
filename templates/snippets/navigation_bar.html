@@ -1,0 +1,53 @@
+<div class="menu">   <!--menu-->
+        <div class="right_menu gradient1">
+          <div id="fdw">
+            <!--nav-->
+            <nav>
+              <ul align="left">
+
+                <li class="">
+                  <a href="{% url "page_home" %}">Home
+                  <span class="arrow"></span>
+                  </a>
+
+                </li>
+                <li>
+                  <a href="#">About</a>
+                  <ul style="display: none;" class="sub_menu">
+                    <li class="arrow_top"></li>
+                    <li>
+                      <a href="{% url "page_portfolio" %}">Portfolio</a>
+                    </li>
+                    <li>
+                      <a href="{% url "page_customers" %}">Customers</a>
+                    </li>
+                    <li>
+                      <a href="{% url "page_partners"%}">Partners</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="{% url "page_services" %}">Services</a>
+                </li>
+                <li>
+                  <a href="{% url "page_products" %}">Products</a>
+                </li>
+                <li>
+                  <a href="{% url "page_support" %}">Support</a>
+                </li>
+                <li>
+                  <a href="{% url "page_contacts" %}">Contacts</a>
+                </li>
+                <li>
+                    <a href="{% url "page_cart" %}">Cart{% if cart_size %}({{ cart_size }}){% endif %}</a>
+                </li>
+                  </div><!-- end fdw -->
+
+
+              </ul>
+
+            </nav>
+
+
+        </div><!-- end right menu gradient-->
+        </div><!-- end of header -->

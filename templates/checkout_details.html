@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load ab_filters %}
+
+{% block content %}
+    {% for license, count in cart %}
+        <br> {{ license.code }}
+        <br> {{ license.verbose_name }}
+        <br> {{ license.price }}
+        <br> {{ count }}
+    {% empty %}
+        No items
+    {% endfor %}
+    <br>
+    Summary:{{ summary }}
+    <br>
+    <br>
+    <br>
+    <br>
+    {% for tax in taxes %}
+        <br>{{ tax.name }}
+        <br>{{ tax.rate|multiply:100 }}%
+        <br>{{ summary|multiply:tax.rate }}
+    {% empty %}
+        no taxes
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    Overall: {{ overall }}
+    <form action="https://webservices.primerchants.com/billing/TransactionCentral/EnterTransaction.asp?" method="POST">
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+{% endblock %}

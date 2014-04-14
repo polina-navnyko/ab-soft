@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content_pr_list">
+    <h3 class="pr_tag">Pricing</h3>
+    <hr class="hr"/>
+    <div class="text full">
+        <table class="table">
+            <tr>
+                <th class="th">{{ product_name }}</th>
+                <th class="th">Price</th>
+                <th class="th" colspan="2">Quantity</th>
+            </tr>
+            {% for license in price_list %}
+                <tr>
+                    <td class="td">{{ license.verbose_name }}</td>
+                    <td class="td1">{{ license.price }}$</td>
+                    <td class="td1">
+                        <input id="{{ license.code }}" class="select" type="text" size="2" placeholder="0"/>
+                    </td>
+                    <td class="td1"><a class="button8" onclick="addItemToCart('{{ license.code }}')">Add to cart</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div><!-- end of content -->
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static "js/ab.js" %}"></script>
+{% endblock %}

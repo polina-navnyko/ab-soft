@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+    Products
+{% endblock %}
+
+{% block content %}
+    <div class="content_pr_list">
+          <div class="wrapper grid3">
+
+            <div class="col text pr_list">
+              <article>
+                <img src="http://placehold.it/300x60" class="pr_list_img"><br/>
+                This is an example of product.
+                You can add new products in <a class="btn-link" href="/manage">Admin Panel</a>.
+                Please note, that the logo image of product is actually fixed size.
+              </article>
+              <div class="pr_button button2"><a href="{% url  "page_products" 'example' %}">Product example</a></div>
+            </div>
+              {% for product in product_list %}
+                  <div class="col text pr_list">
+                    <article>
+                        <img src="{{ product.logo.image.url }}" class="pr_list_img"><br/>
+                        {{ product.short_description }}
+                    </article>
+                  <div class="pr_button button2"><a href="{% url "page_products" product.slug %}">Read more</a></div>
+                  </div>
+              {% empty %}
+                  No products yet =(
+              {% endfor %}
+          </div>
+
+            <!-- </div> --><!-- end of  content_pr-->
+
+        </div><!-- end of content -->
+{% endblock %}

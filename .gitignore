@@ -1,0 +1,9 @@
+*.log
+*.pot
+*.py[oc]
+*.db
+.idea/
+media/
+assets/
+local_settings.py
+prod_settings.py

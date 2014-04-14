@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title_head %}
+    a&amp;b soft
+{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static "css/slider/flexslider.css" %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block slider %}
+    <div class="margin">
+          <section class="slider">
+            <div class="flexslider">
+              <ul class="slides box">
+                  {% for slide in slides %}
+                      <li>
+                        {{ slide.image.view|safe }}
+                      </li>
+                  {% empty %}
+                      <img src="http://placehold.it/950x280">
+                  {% endfor %}
+
+              </ul>
+            </div>
+          </section>
+        </div>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+          <div id="pagewrap">
+            <div class="content">
+              <div>
+                <div class="left_col text">
+                  <!--big block-->
+                  <article class="">
+                    <h3 class="tag">Welcome to A&amp;B Software</h3>
+                    A&amp;B Software is a leading provider of advanced products and services for the industrial and scientific imaging marketplaces.
+                    Our ActiveDcam, ActiveGigE, ActiveUSB and ImageWarp software products are used in a wide variety of application areas including industrial automation, metrology, life science, X-ray   inspection, food processing, aerospace, geology, traffic and security.
+                    We also provide companies and institutions with custom product development services. Our team of software developers and researches possesses unique engineering expertise combined with state-of-the-art technical skills, creativity and project management experience.
+                  </article>
+
+                  <div class="two_col1">
+                    <article class="">
+                      <h3 class="tag_blue">Our partners:</h3>
+                      We are working with industry leaders to provide our customers with world-class technology solutions.
+                      <ul>
+                        <li>1Vision LTD</br></li>
+                        <li>Allied Vision Technologies</br></li>
+                      </ul>
+                    </article>
+                  </div>
+
+                  <div class="two_col2">
+                    <article class="">
+                      <h3 class="tag_blue">We specialize in:</h3>
+                      <ul>
+                        <li>computer and machine vision</br></li>
+                        <li>industrial and scientific image analysis</br></li>
+                        <li>vision systems design and integration</br></li>
+                        <li>real-time image and signal processing</br></li>
+                        <li>IT consulting, engineering and research</br></li>
+                      </ul>
+                    </article>
+                  </div>
+
+                </div><!--left col-->
+                {% block latest_news %}
+                {% include 'snippets/index_news.html' %}
+                {% endblock %}
+
+              </div><!-- end of HR -->
+
+              <div>
+              <div class="content">
+               <div class="padding">
+                <div class="wrapper grid3">
+                      <div  class="col text">
+                        <!-- <article> -->
+                          <h3 class="tag">We create Software</h3>
+
+                            <img class="img_bottom"src="http://placehold.it/290x160">
+                      </div>
+
+                      <div  class="col text">
+                          <h3 class="tag">Programming Services</h3>
+                        <img class="img_bottom"src="http://placehold.it/290x160">
+                      </div>
+
+                      <div  class="col text">
+                          <h3 class="tag">New!</h3>
+                          <img class="img_bottom"src="http://placehold.it/290x160">
+                      </div>
+
+
+
+                </div> <!-- end wrapper grid 3 -->
+             </div>
+             </div>
+             </div>
+            </div><!--2 content -->
+          </div>
+        </div><!-- end of 1 content -->
+{% endblock %}
+
+{% block extra_js %}
+    <script defer src="{% static "js/slider/jquery.flexslider.js" %}"></script>
+    <script type="text/javascript">
+        $(window).load(function(){
+        $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+        $('body').removeClass('loading');
+        }
+        });
+        });
+    </script>
+{% endblock %}

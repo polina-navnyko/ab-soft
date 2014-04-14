@@ -1,0 +1,30 @@
+{% extends 'bare_base.html' %}
+{% load url from future %}
+
+{% block body %}
+
+    <div align="center">
+        <div  class="shadow">
+            {% block messages %}
+                {% if messages %}
+                    <div class="container">
+                    {% for message in messages %}
+                        <div class="message alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endblock messages %}
+            {% include 'snippets/header.html' %}
+            {% include 'snippets/navigation_bar.html' %}
+            {% block slider %}{% endblock %}
+            <div class="content container">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+        {% include 'snippets/footer_bar.html' %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title_head %}News{% endblock %}
+
+{% block content %}
+<div class="content_pr_list">
+    <h3 class="pr_tag">News</h3>
+    <hr class="hr"/>
+    {% for post in news %}
+        <div class="text full">
+            <article>
+                <h3 class="news_O">{{ post.created|date:"d F, Y" }}</h3>
+                {{ post.text }}
+            </article>
+        </div>
+    {% empty %}
+        No news
+    {% endfor %}
+</div>
+{% endblock %}

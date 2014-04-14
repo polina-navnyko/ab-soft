@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static "css/form.css"%}" media="all" />
+{% endblock %}
+
+{% block content %}
+
+<div class="right_col services">
+    <h3 class="pr_tag">Order Online - Step 2</h3>
+    <hr class="hr"/>
+    <article class="text_pr">
+        <h3 class="tag_pr">Personal Details</h3>
+        Please enter your personal details in the fields below. Fields with a star (*) are required.
+    </article>
+
+    {% if form %}
+        <form action="" method="post" class="formoid-default-skyblue" style="background-color:#FFFFFF;font-size:14px;font-family:'Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+                <div class="{% if not field.errors %}element-input{% else %}wrong_formoid-default-skyblue{% endif %}" >
+                    <label class="title" for="{{ field.id_for_label }}">
+                        {{field.label}}
+                        {% if field.field.required %}
+                            <span class="required">*</span>
+                        {% endif %}
+                        {{field.errors}}
+                    </label>
+                    {% render_field field class="large" %}
+                </div>
+            {% endfor %}
+            <input type="submit" value="Submit" />
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

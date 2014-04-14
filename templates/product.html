@@ -1,0 +1,26 @@
+{% extends 'snippets/products/product_base.html' %}
+
+{% block title_head %}{{ product.name }}{% endblock %}
+{% block product_menu %}
+    {% include 'snippets/products/product_menu.html' %}
+{% endblock %}
+
+{% block product_comments %}
+    {% for comment in product.comments.all %}
+        <div class="testimonials">
+        <article>
+            {{ comment.comment }}<br>
+            {{ comment.author }}<br>
+        </article>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block product_description %}
+    <div class="right_col content_pr">
+        <article class="text_pr">
+            <h3 class="tag_pr">{{product.name}}</h3>
+            {{ product.full_description|safe }}
+        </article>
+    </div>
+{% endblock %}
