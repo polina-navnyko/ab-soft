@@ -1367,7 +1367,7 @@ padding-left:2%;
 
 
 }
-.button6{
+.button-checkout {
 font:normal 12px Tahoma, Geneva, sans-serif;
 font-style:normal;
 color:#ffffff;
@@ -1389,7 +1389,7 @@ float: right;
 position:relative;
 text-align: center;
 }
-.button6:active{
+.button-checkout:active{
 /*cursor:pointer;*/
 position:relative;
 top: 1px;
